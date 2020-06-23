@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Guitar Practice Routine Tracker</title>
+
+<script type="text/javascript" src="js/howler.min.js"></script>
+<script type="text/javascript" src="js/guitar_practice_routine_timer.js"></script>
+<script type="text/javascript" src="js/metronome.js"></script>
+<script type="text/javascript" src="js/iconify.min.js"></script>
+
+<link rel="stylesheet" href="css/circle.css"/>
+<link rel="stylesheet" href="css/practice_studio_timer.css"/>
+</head>
+
+<body>
+
+<div id="pst">
+<div class="card">
+<div class="border-left"></div>
+
+<div class="card-inner">
+<div class="header">  
+<img class="logo" src="i/guitar hacks metronome studio.png"></img>
+<div class="led-red off"></div>
+</div>
+<div class="dash">
+  <hr/>
+<div class="dash-phase">
+  <h3 class="off NONE">--</h3>
+  <h3 class="off FUNDAMENTALS">Fundamentals</h3>
+  <h3 class="off MUSICALEXERCISES">Musical Exercises</h3>
+  <h3 class="off POMODORO">Pomodoro</h3>
+  <h3 class="off OUTOFTHEPLATEAU">Out of the Plateau</h3>
+  <h3 class="off OUTOFTHEBOX">Out of the Box</h3>
+  <h4 id="dash-period">--</h4>
+</div>
+<hr/>
+<div class="dash-main">
+<div class="dash-time">
+<div id="dash-period-time-bar" class="c100 p0 gh big radial metal">
+  <span id="dash-period-time">--</span>
+  <div class="slice">
+  <div class="bar"></div>
+    <div class="fill"></div>
+  </div>
+  </div>
+  </div>
+  <div id="dash-metronome">
+  <div id="dash-period-bpm-bar" class="c100 p0 gh radial metal">
+    <input id="dash-period-bpm"></input>
+  <div class="slice">
+  <div class="bar"></div>
+  <div class="fill"></div>
+  </div>
+  </div>
+  <div id="dash-metronome-control" class="controls small">
+    <div class="control-metronome-plus embossed"><span class="iconify"
+      data-icon="mdi-plus-circle-outline"></span></div>
+    <div class="control-metronome-minus embossed"><span
+      class="iconify"
+      data-icon="mdi-minus-circle-outline"></span></div>
+      <div class="control-metronome-timediv embossed">
+	<select>
+	  <option value="2/4">2/4</option>
+	  <option value="3/4">3/4</option>
+	  <option value="4/4" selected="selected">4/4</option>
+	  <option value="5/4">5/4</option>
+	  <option value="7/8">7/8</option>
+	</select>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+<hr/>
+<div class="controls">
+<div class="control-play embossed"><span class="iconify" data-icon="mdi-play-circle-outline"></span></div>
+<div class="control-stop embossed"><span class="iconify" data-icon="mdi-stop-circle-outline"></span></div>
+<div class="control-back embossed"><span class="iconify" data-icon="mdi-skip-previous-circle-outline"></span></div>
+<div class="control-skip embossed"><span class="iconify" data-icon="mdi-skip-next-circle-outline"></span></img></div>
+  
+<div class="control-metronome embossed"><span class="iconify" data-icon="mdi-metronome-tick"></span></div>
+<!-- <div class="logo"><img src="../i/guitarhacks.png"></img></div> -->
+<div class="control-time embossed"><span id="dash-time">00:00</div>
+</div>
+<hr/>
+<div>
+  </div>
+<hr/>
+</div>
+<div class="border-right"></div>
+</div>
+</div>
+
+</body>
+</html>

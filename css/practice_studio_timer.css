@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'LCD';
+  src: url("LCD14.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+#pst {
+  width: 37em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  color: white;
+  font-family: LCD;
+  text-transform: uppercase;
+  font-size: 1.3em; }
+  @media (min-width: 64em) {
+    #pst {
+      font-size: 1.43em;
+      line-height: 1.65; } }
+  @media (min-width: 85.375em) {
+    #pst {
+      font-size: 1.43em; } }
+  @media (min-width: 120em) {
+    #pst {
+      font-size: 1.82em; } }
+  @media (min-width: 160em) {
+    #pst {
+      font-size: 2.34em; } }
+  #pst hr {
+    background: rgba(0, 0, 0, 0.6);
+    height: 2px;
+    width: 100%;
+    display: block;
+    border-color: black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
+  #pst .card {
+    position: relative;
+    margin: 20px;
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.35);
+    border-radius: 10px; }
+  #pst .border-left, #pst .border-right {
+    flex: 0 0 auto;
+    background: #000000;
+    width: .4em; }
+  #pst img.logo {
+    padding-left: 1em;
+    width: 11em;
+    height: auto; }
+  #pst .card-inner {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: .6em;
+    padding-bottom: 1.2em;
+    z-index: 2;
+    background-color: #333333;
+    display: grid;
+    flex: 1; }
+  #pst .dash-phase {
+    text-align: center;
+    display: grid;
+    grid-auto-flow: column;
+    background: #000000;
+    border-radius: 3px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    margin: 1em 2em;
+    padding-left: .6em;
+    padding-right: .6em; }
+    #pst .dash-phase h3 {
+      font-size: 2em;
+      margin: auto 0;
+      -webkit-animation: fadeIn 1s;
+      animation: fadeIn 1s;
+      position: relative;
+      overflow: hidden;
+      justify-self: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 13em; }
+    #pst .dash-phase h3.off {
+      display: none;
+      font-size: 1.5em;
+      color: #cdcdcd; }
+    #pst .dash-phase h4 {
+      font-size: 1em;
+      justify-self: right; }
+    #pst .dash-phase h3:hover, #pst .dash-phase h4:hover {
+      filter: brightness(120%); }
+  #pst .dash-main {
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-auto-flow: column; }
+  #pst #dash-period-time-bar {
+    margin: 10px; }
+  #pst #dash-metronome {
+    display: none; }
+  #pst #dash-metronome.active {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center; }
+  #pst #dash-period-bpm-bar {
+    margin: 0; }
+  #pst .controls {
+    display: inline-grid;
+    grid-auto-flow: column;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2.5em;
+    padding: .2em 0;
+    grid-gap: .2em;
+    align-items: center; }
+  #pst .controls.small {
+    font-size: 1.7em;
+    padding: .2em 0;
+    grid-gap: .1em; }
+  #pst .controls #dash-time {
+    display: inline-block;
+    line-height: 1; }
+  #pst .controls .active {
+    filter: sepia(100%) hue-rotate(290deg) brightness(50%) saturate(10000%); }
+  #pst .embossed {
+    color: white;
+    text-shadow: 0px 1px 1px #fff, 0 0 0 #000, 0px 0px 0px transparent;
+    background: #000000;
+    border-radius: 3px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    padding: .2em; }
+  #pst .embossed {
+    border: 2px solid black;
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2);
+    background: #404040;
+    /* Old browsers */ }
+  #pst .embossed:hover {
+    filter: brightness(120%); }
+  #pst .embossed select {
+    line-height: 1;
+    font-size: .75em;
+    background: transparent;
+    color: white;
+    border: 0; }
+  #pst .logo img {
+    width: 2em;
+    height: 2em; }
+  #pst .dash h2 {
+    font-size: 10em; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+  #pst .led-red {
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+    background-color: #F00;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px; }
+  #pst .led-red.off {
+    background-color: #A00; }
+  #pst .header {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center; }
+    #pst .header .led-red {
+      margin-right: 1em;
+      justify-self: right; }
