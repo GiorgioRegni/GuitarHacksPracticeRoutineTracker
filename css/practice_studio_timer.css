@@ -12,27 +12,19 @@
   color: white;
   font-family: LCD;
   text-transform: uppercase;
-  font-size: 1.3em; }
-  @media (min-width: 64em) {
+  font-size: 2.5vw; }
+  @media only screen and (min-aspect-ratio: 1/1) {
     #pst {
-      font-size: 1.43em;
-      line-height: 1.65; } }
-  @media (min-width: 85.375em) {
-    #pst {
-      font-size: 1.43em; } }
-  @media (min-width: 120em) {
-    #pst {
-      font-size: 1.82em; } }
-  @media (min-width: 160em) {
-    #pst {
-      font-size: 2.34em; } }
+      font-size: 2.5vh; } }
   #pst hr {
     background: rgba(0, 0, 0, 0.6);
     height: 2px;
     width: 100%;
     display: block;
     border-color: black;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    max-width: unset;
+    margin: .5em 0; }
   #pst .card {
     position: relative;
     margin: 20px;
@@ -67,9 +59,10 @@
     border-radius: 3px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     margin: 1em 2em;
-    padding-left: .6em;
-    padding-right: .6em; }
+    padding: .4em .6em; }
     #pst .dash-phase h3 {
+      font-family: LCD;
+      color: white;
       font-size: 2em;
       margin: auto 0;
       -webkit-animation: fadeIn 1s;
@@ -79,14 +72,19 @@
       justify-self: left;
       white-space: nowrap;
       text-overflow: ellipsis;
-      max-width: 13em; }
+      max-width: 13em;
+      padding: 0px; }
     #pst .dash-phase h3.off {
       display: none;
       font-size: 1.5em;
       color: #cdcdcd; }
     #pst .dash-phase h4 {
+      font-family: LCD;
+      color: white;
       font-size: 1em;
-      justify-self: right; }
+      margin: auto 0;
+      justify-self: right;
+      padding: 0px; }
     #pst .dash-phase h3:hover, #pst .dash-phase h4:hover {
       filter: brightness(120%); }
   #pst .dash-main {
@@ -111,6 +109,7 @@
     margin-left: auto;
     margin-right: auto;
     font-size: 2.5em;
+    line-height: 1em;
     padding: .2em 0;
     grid-gap: .2em;
     align-items: center; }

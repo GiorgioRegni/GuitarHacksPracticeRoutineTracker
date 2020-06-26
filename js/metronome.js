@@ -192,8 +192,8 @@ var ghMetronome = (function () {
 	    };
 	    
 	    
-    	    audioContext = new AudioContext();
-	    timerWorker = new Worker("js/metronome_worker.js");
+		audioContext = new AudioContext();
+		timerWorker = new Worker(METRONOME_SCRIPT_BASE_URL + "/metronome_worker.js");
 	    
 	    timerWorker.onmessage = function(e) {
 		if (e.data == "tick") {
@@ -256,6 +256,15 @@ var ghMetronome = (function () {
 
      };
 })().getInstance();
+
+var METRONOME_SCRIPT_BASE_URL;
+{
+	var scripts = document.getElementsByTagName('script');
+	var currentScript = scripts[scripts.length-1];
+	var baseURL = currentScript.src;
+	baseURL = baseURL.substring(0, baseURL.lastIndexOf("/") + 1);
+	METRONOME_SCRIPT_BASE_URL = baseURL;
+}
 
 window.addEventListener("DOMContentLoaded", function() {
     ghMetronome.setup("pst");

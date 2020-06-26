@@ -14,7 +14,7 @@ $pst-mq-xxlarge: "(min-width: #{$pst-bp-xxlarge})";
 $pst-mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
 
 // Font-Size
-$pst-base-font-size: 1.3em;
+$pst-base-font-size: 25px;
 
 // Line-Height
 $pst-base-line-height: 1.5;
@@ -35,24 +35,11 @@ $pst-base-line-height: 1.5;
     color: white;
     font-family: LCD;
     text-transform: uppercase;
-    font-size: $pst-base-font-size;
+	font-size: 2.5vw;
 
-    @media #{$pst-mq-medium} {
-	font-size: $pst-base-font-size*1.1;
-	line-height: $pst-base-line-height*1.1;
-    }
-
-    @media #{$pst-mq-large} {
-	font-size: $pst-base-font-size*1.1;
-    }
-
-    @media #{$pst-mq-xlarge} {
-	font-size: $pst-base-font-size*1.4;
-    }
-
-    @media #{$pst-mq-xxlarge} {
-	font-size: $pst-base-font-size*1.8;
-    }
+	@media only screen and (min-aspect-ratio: 1/1) {
+		font-size: 2.5vh;	
+		}	
 
     hr {
 	background: rgba(0, 0, 0, 0.6);
@@ -61,6 +48,8 @@ $pst-base-line-height: 1.5;
 	display: block;
 	border-color: black;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+	max-width: unset;
+	margin: .5em 0;
     }
     .card {
 	position: relative;
@@ -95,10 +84,6 @@ $pst-base-line-height: 1.5;
 	display: grid;
 	flex: 1;
     }
-    
-    .dash {   
-	//display: flex;
-    }
 
     .dash-phase {
 	text-align:center;
@@ -109,10 +94,11 @@ $pst-base-line-height: 1.5;
 //	box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.05), 0 3px 10px 5px rgba(0, 0, 0, 0.8) inset, 0 5px 10px 5px rgba(20, 30, 40, 0.5) inset, 0 0 0 1px rgba(0, 0, 0, 0.75);
 	box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
 	margin: 1em 2em;
-	padding-left: .6em;
-	padding-right: .6em;
+	padding: .4em .6em;
 
 	h3 {
+		font-family: LCD;
+		color: white;
 	    font-size: 2em;
 	    margin: auto 0;
 	    -webkit-animation: fadeIn 1s;
@@ -122,7 +108,8 @@ $pst-base-line-height: 1.5;
 	    justify-self: left;
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
-	    max-width: 13em;
+		max-width: 13em;
+		padding: 0px;
 	}
 
 	h3.off {
@@ -132,8 +119,12 @@ $pst-base-line-height: 1.5;
 	}
 
 	h4 {
-	    font-size: 1em;
+		font-family: LCD;
+		color: white;
+		font-size: 1em;
+		margin: auto 0;
 	    justify-self: right;
+		padding: 0px;
 	}
 
 	h3:hover, h4:hover {
@@ -182,6 +173,7 @@ $pst-base-line-height: 1.5;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 2.5em;
+	line-height: 1em;
 	padding: .2em 0;
 	grid-gap: .2em;
 	align-items: center;

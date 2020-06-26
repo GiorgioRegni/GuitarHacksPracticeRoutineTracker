@@ -59,10 +59,13 @@ var ghPracticeStudio = (function () {
 	var _state_period = undefined; // Current exercise in period
 	var _stateStartTime = undefined; // Time when the current state was started
 	var _statePeriodStartTime = undefined; // Time when the current state period was started
+	var scripts = document.getElementsByTagName('script');
+	var currentScript = scripts[scripts.length-1];
+	var baseURL = currentScript.src.substring(0, currentScript.src.lastIndexOf("js/"));
 
 	// Sounds
 	var _snd_transition = new Howl({
-	    src: ['i/clave.wav']
+	    src: [baseURL+'/i/clave.wav']
 	});
 
 	_log = function(msg) {
