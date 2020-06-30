@@ -59,6 +59,8 @@ var ghPracticeStudio = (function () {
 	var _state_period = undefined; // Current exercise in period
 	var _stateStartTime = undefined; // Time when the current state was started
 	var _statePeriodStartTime = undefined; // Time when the current state period was started
+	var _pause_state = false;
+	var _pause_time;
 	var scripts = document.getElementsByTagName('script');
 	var currentScript = scripts[scripts.length-1];
 	var baseURL = currentScript.src.substring(0, currentScript.src.lastIndexOf("js/"));
@@ -130,11 +132,13 @@ var ghPracticeStudio = (function () {
 	    _timer = undefined;
 	    _startTime = undefined;
 	    _state = STATES.NONE;
-	    _stateStartTime = undefined;
+		_stateStartTime = undefined;
+		_pause_state = false;
 
 	    _gotoState(STATES.NONE, undefined);
 
-	    _dom_root.querySelector(".control-stop").style.display = "none";
+		_dom_root.querySelector(".control-stop").style.display = "none";
+		_dom_root.querySelector(".control-pause").style.display = "none";
 	    _dom_root.querySelector(".control-play").style.display = "block";
 	    _dom_root.querySelector(".header .led-red").className="led-red off";
 	    _dom_period_time.textContent = "--";
@@ -144,10 +148,12 @@ var ghPracticeStudio = (function () {
 	
 	var _start = function() {
 	    _dom_root.querySelector(".control-stop").style.display = "block";
+	    _dom_root.querySelector(".control-pause").style.display = "block";
 	    _dom_root.querySelector(".control-play").style.display = "none";
 	    _dom_root.querySelector(".header .led-red").className="led-red";
 
-	    _startTime  = _getTime();
+		_startTime  = _getTime();
+		_pause_state = false;
 	    _gotoState(STATES.FUNDAMENTALS, _startTime);
 
 	    _snd_transition.play();
@@ -155,6 +161,19 @@ var ghPracticeStudio = (function () {
 	    //_timer = setInterval(_tick, 100);
 	    _timer = new Timer( _tick, 1000, -1, false);
 	};
+
+	var _pause = function() {
+		// Toggle pause state
+		_pause_state = !_pause_state;
+		if (_pause_state) {
+			_pause_time = _getTime();
+		} else {
+			var drift = _getTime() - _pause_time;
+			_statePeriodStartTime += drift;
+		    _startTime += drift;
+		    _stateStartTime += drift;
+		}
+	}
 
 	var _next = function() {
 	    if (_startTime) {
@@ -171,7 +190,7 @@ var ghPracticeStudio = (function () {
 	    }
 	}
 
-	var _back = function() { // TODO, this logic does not work, need to manually change states
+	var _prev = function() { // TODO, this logic does not work, need to manually change states
 	    if (_startTime) {
 		// Timer in progress
 		var now = _getTime();
@@ -179,7 +198,7 @@ var ghPracticeStudio = (function () {
 		_log(drift);
 		if (drift > 0) {
 		    _statePeriodStartTime += drift;
-		    _startTime += drift;
+		    //_startTime -= drift;
 		    _stateStartTime += drift;
 		}
 	    }
@@ -189,6 +208,9 @@ var ghPracticeStudio = (function () {
 	  * Main loop to manage states and update graphics
 	  */
 	function _tick() {
+		if (_pause_state)
+			return;
+
 	    var now = _getTime();
 	    if (_gotoNextPeriodOrState(now)) {
 	    
@@ -293,7 +315,12 @@ var ghPracticeStudio = (function () {
 		_log("Starting ghPracticeStudio");
 		_stop();
 		_start();
-	    },
+		},
+
+		pause: function () {
+			_log("Pausing ghPracticeStudio");
+			_pause();
+			},
 
 	    stop: function() {
 		_log("stopping ghPracticeStudio");
@@ -303,14 +330,21 @@ var ghPracticeStudio = (function () {
 	    next: function() {
 		_log("Next");
 		_next();
-	    },
+		},
+		
+		prev: function() {
+			_log("Prev");
+			_prev();
+		},
 
 	    setupEvents: function(root_id) {
 		_dom_root = document.getElementById(root_id);
 		// Setup all events
 		_dom_root.querySelector(".control-play").onclick = function(){instance.start();};
+		_dom_root.querySelector(".control-pause").onclick = function(){instance.pause();};
 		_dom_root.querySelector(".control-stop").onclick = function(){instance.stop();};
 		_dom_root.querySelector(".control-skip").onclick = function(){instance.next();};
+		_dom_root.querySelector(".control-back").onclick = function(){instance.prev();};
 		
 		_dom_time = _dom_root.querySelector("#dash-time");
 		_dom_period_time = _dom_root.querySelector("#dash-period-time");
@@ -319,6 +353,7 @@ var ghPracticeStudio = (function () {
 		_dom_period = _dom_root.querySelector("#dash-period");
 
 		_dom_root.querySelector(".control-stop").style.display = "none";
+		_dom_root.querySelector(".control-pause").style.display = "none";
 	    }
 	};
 
