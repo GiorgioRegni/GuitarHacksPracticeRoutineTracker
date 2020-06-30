@@ -113,6 +113,13 @@ var ghMetronome = (function () {
 
 	function setTimeDivision(timeDiv) {
 	    switch(timeDiv) {
+		case "1/1":
+		meter = 1;
+		quarterVolume = 0.75;
+		eighthVolume = 0;
+		sixteenthVolume = 0;
+		tripletVolume = 0;
+		break;
 	    case "2/4":
 		meter = 2;
 		quarterVolume = 0.75;
