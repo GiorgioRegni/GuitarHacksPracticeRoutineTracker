@@ -1,3 +1,4 @@
+
 # GuitarHacksPracticeRoutineTracker
 All in one studio for applying Guitar Hacks practice routine and exercises.
 
