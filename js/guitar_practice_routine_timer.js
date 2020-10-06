@@ -220,8 +220,9 @@ var ghPracticeStudio = (function () {
 		    _dom_period_time_bar.className = "c100 big gh p"+ Math.round(100.0 * (now-_statePeriodStartTime) / (STATES_PERIODS[_state][_state_period]*60*1000));;
 		}
 	    } else {
-		// We reached the end, display a message
-		alert("Done!");
+			// We reached the end, display a message
+			alert("Congrats, great practice today!");
+			_stop();
 	    }
 	}
 
