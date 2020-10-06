@@ -15,11 +15,6 @@ License: Commercial @www.guitarhacks.com
 */
 
 class GHPRT {
-
-  const PLAYER_KEY = '***REMOVED***';
-  const PLAYER_DOMAIN = 'cdn.jwplayer.com';
-  const PLAYER_SECRET = '***REMOVED***';
-  const PLAYER_EXPIRE_TIME = 60*20; // 20 minutes link validity
   
   /**
    * Singleton
