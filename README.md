@@ -11,7 +11,7 @@ Run css-compile.sh to build the css files from the scss folder.
 
 ### How to run
 
-The docker command runs a wordpress instance and the plugin can be activated from there.
+The docker-compose file runs a wordpress instance and the plugin can be activated from there.
 Then this url can be browsed to test the application:
 /wp-content/plugins/GuitarHacksPracticeRoutingTracker/guitar_practice_routine_tracker.html
 
